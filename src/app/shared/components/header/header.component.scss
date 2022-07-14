@@ -1,0 +1,20 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+mat-toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+}
+
+.logout-btn {
+  mat-icon {
+    padding-right: 5px;
+  }
+  &:hover {
+    background: rgba(0,0,0,.4);
+  }
+}

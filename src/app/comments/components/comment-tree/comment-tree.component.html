@@ -1,0 +1,17 @@
+<ng-container *ngTemplateOutlet="commentTree; context:{'comments': comments}"></ng-container>
+
+<ng-template #commentTree let-comments="comments">
+  <div class="comment-tree-section" *ngFor="let comment of comments" [ngClass]="{'root-tree': !comment?.parentId}">
+    <app-comment-node class="comment-section"
+      [comment]="comment"
+      (edit)="onEditComment(comment, $event)"
+      (reply)="comment.isReplying = !comment.isReplying"
+      (delete)="onDeleteComment(comment)"
+      ></app-comment-node>
+
+    <app-comment-input *ngIf="comment?.isReplying" (submit)="onPostReply(comment, $event)"></app-comment-input>
+
+    <ng-container *ngTemplateOutlet="commentTree; context:{'comments': getReplies(comment)}"></ng-container>
+  </div>
+</ng-template>
+

@@ -1,0 +1,25 @@
+<div class="comment-section">
+  <div class="comment-details">
+    <div class="user-profile-pic-section">
+      <img class="profile-pic" src="assets/profile-pic-placeholder.png" width="50px">
+    </div>
+
+    <div class="metadata-text-wrap">
+      <div class="metadata">
+        <div class="author-name">{{ comment?.author?.name }} </div>
+        <div class="created-at">{{ comment?.createdAt | date: 'short' }} </div>
+      </div>
+
+      <div class="comment-text" *ngIf="!comment?.isEditing; else editComment">{{ comment?.text }}</div>
+      <ng-template #editComment>
+        <app-comment-input (submit)="onSubmitEdit($event)" [initialText]="comment.text"></app-comment-input>
+      </ng-template>
+    </div>
+  </div>
+
+  <div class="comment-actions">
+    <a (click)="onEdit()" *ngIf="canEdit">Edit</a>
+    <a (click)="onReply()">Reply</a>
+    <a (click)="onDelete()" *ngIf="canDelete">Delete</a>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="container">
+  <app-header></app-header>
+
+  <div class="comments-section">
+    <app-comment-input class="comment-input" (submit)="submitNewComment($event)"></app-comment-input>
+    <app-comment-tree
+      [comments]="comments"
+      class="comment-tree"
+      (postReply)="submitReply($event)"
+      (delete)="deleteComment($event)"
+      (edit)="editComment($event)"
+    ></app-comment-tree>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+.comments-section {
+  display: flex;
+  flex-direction: row;
+  margin-top: 64px;
+  padding: 15px;
+
+  .comment-input {
+    width: 40%;
+    margin-right: 30px;
+  }
+
+  .comment-tree {
+    width: 60%;
+  }
+}

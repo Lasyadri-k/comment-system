@@ -1,0 +1,9 @@
+<form class="comment-form">
+  <mat-form-field class="comment-text" appearance="fill" >
+    <mat-label>Leave a comment</mat-label>
+    <textarea matInput placeholder="Ex. Write something here..." [formControl]="commentTextCtrl"></textarea>
+    <mat-error *ngIf="commentTextCtrl.invalid">{{ getErrorMessage() }}</mat-error>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" class="submit-btn" [disabled]="commentTextCtrl.invalid" type="button" (click)="submitComment()">Submit</button>
+</form>

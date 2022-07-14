@@ -1,0 +1,16 @@
+.comment-tree-section {
+    padding-left: 60px;
+
+    &.root-tree {
+      padding: 10px 0 0 10px ;
+      border: 1px dotted black;
+    }
+
+    ::ng-deep {
+      .comment-section {
+        margin-bottom: 20px;
+      }
+    }
+}
+
+

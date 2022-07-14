@@ -1,0 +1,65 @@
+.comment-section {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+
+  .comment-details {
+    display: flex;
+    flex-direction: row;
+
+    .user-profile-pic-section {
+      margin-right: 10px;
+    }
+
+    .profile-pic {
+      border: 1px solid gray;
+      border-radius: 50%;
+    }
+
+    .metadata-text-wrap {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      margin-bottom: 8px;
+
+      .comment-text {
+        white-space: pre;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .metadata {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 5px;
+
+        .author-name {
+          font-weight: 500;
+          color: #008ec7;
+          padding-right: 10px;
+        }
+
+        .created-at {
+          font-size: 13px;
+          font-weight: 3;
+        }
+      }
+    }
+  }
+
+  .comment-actions {
+    display: flex;
+    flex-direction: row;
+    margin-left: 63px;
+
+    :not(:last-child) {
+      margin-right: 10px;
+    }
+
+    * {
+      color: blue;
+      cursor: pointer;
+    }
+  }
+}
