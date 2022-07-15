@@ -2,9 +2,21 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.5.
 
+## Installation
+
+Open command prompt and run `npm install`.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+
+## Installation of json server
+
+open command prompt and run `npm install -g json-server`. It will install json server in your machine.
+
+## Start json server
+
+Run `json-server --watch db.json` to start json server. Navigate to `http://localhost:3000/` to get your data.
 
 ## Code scaffolding
 
