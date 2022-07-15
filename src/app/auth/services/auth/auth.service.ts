@@ -20,7 +20,7 @@ export class AuthService {
     this.auth0.client.login({
       realm: environment.realm,
       username: email,
-      password
+      password,
     }, cb);
   }
 

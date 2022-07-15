@@ -11,10 +11,6 @@ export class CommentsService {
 
   constructor(private http: HttpClient) {}
 
-  public getLoggedInUserId() {
-    return 1;
-  }
-
   private getReplies(comments: RawComment[], activeComment: RawComment): Comment {
     return {
       ...activeComment,

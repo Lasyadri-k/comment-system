@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Comment } from '../../models/commet.model';
 import { CommentsService } from '../../services/comments/comments.service';
+import { StorageService } from 'src/app/base/services/storage/storage.service';
 
 @Component({
   selector: 'app-comment-node',
@@ -21,10 +22,11 @@ export class CommentNodeComponent implements OnInit {
   public canEdit = false;
   public canDelete = false;
 
-  constructor(private commentsService: CommentsService) { }
+  constructor(private commentsService: CommentsService, private storageService: StorageService) { }
 
   ngOnInit(): void {
-    if (this.comment.author.userId === this.commentsService.getLoggedInUserId()) {
+    const userInfo = JSON.parse(this.storageService.getLocalStorageValue('userInfo') || '{}');
+    if (this.comment.author.userId === userInfo.sub) {
       this.canEdit = true;
       this.canDelete = !this.comment.replies?.length;
     }

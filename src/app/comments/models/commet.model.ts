@@ -1,4 +1,8 @@
 import { Author } from './author.model';
+import { Injector } from '@angular/core';
+import { StorageService } from 'src/app/base/services/storage/storage.service';
+
+const storageService = new StorageService();
 
 export interface RawComment {
   id: number;
@@ -18,10 +22,11 @@ export class CommentInput {
     this.text = text;
     this.parentId = parentId || null;
     // No need to add below keys in actual API implementation
+    const userInfo = JSON.parse(storageService.getLocalStorageValue('userInfo') || '{}');
     this.createdAt = new Date().toISOString();
     this.author = {
-      userId: 1,
-      name: 'Lasya',
+      userId: userInfo.sub,
+      name: userInfo.name,
     }
   }
 }
